@@ -1,0 +1,22 @@
+Sprint 1)
+----------------
+	o Initialize the git repository for the project "Simplified Banking App"
+	o Create a low-fidelity outline of the website design. Current scope is to have 3 user facing pages:
+		I. The homepage/login page
+		II. The user registration page - where the user will register if their information is not currently available.
+		III. The account information page - a custom message to the user, based on their DB info, will be displayed. User can choose between existing accounts and see transaction history within the accounts.
+	o Functionality requirements:
+		HOMEPAGE/LOGIN: At this stage, styling is kept minimal. Simple HTML effects and form elements are sufficient. Accept user login information and submit to server.
+			The user will be verified using txt documents on the server. If the user exists, log in. If not, send to registration page.
+		REGISTRATION: 	Styling kept minimal. HTML Form and effects is sufficient. Takes user personal data, sends to server, creates txt DB entry, and then 'initializes' the customers accounts.
+			Customer is then taken to their new account page.
+		ACCOUNT INFO: 	Display custom message greeting client. Display whatever accounts the customer has with the app using DB entries. Display account transactions.
+
+-------------------
+Development Notes:
+-------------------
+	* This is TBD. Below are general notes for improvement to the platform - these tasks have yet to be scheduled.
+	o Implement Bootstrap 5/CSS as necessary to improve the styling/appearance of the website.
+	o Implement meaningful input restrictions/helpful error codes to inform a user of invalid input
+	o Migrate Database functions from txt files to MongoDB or MySQL (still being researched).
+	o Give users the ability to add an account, delete an account, make a deposit, make a withdrawal, request a loan.
