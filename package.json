@@ -1,0 +1,25 @@
+{
+  "name": "simplebanking_v2.0",
+  "version": "1.0.0",
+  "description": "Simple Banking App",
+  "main": "FSUtilitiesSync.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Khudd1214/Simplified-Banking-App.git"
+  },
+  "author": "Kenneth Huddleston",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Khudd1214/Simplified-Banking-App/issues"
+  },
+  "homepage": "https://github.com/Khudd1214/Simplified-Banking-App#readme",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "express": "^4.17.2",
+    "nodemon": "^2.0.15"
+  }
+}
