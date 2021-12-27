@@ -41,6 +41,5 @@ Implementation Details:
 -----------------------
 Current Tasks:
 -----------------------
-	o Implement FSUtilitiesSync.js - start by creating a search function that will look through the database for the user information. If exists, return user information. If does not exist, return False.
-	o implement findDB(pathToDB) - confirms that pathToDB is a valid path. Confirm file exists. Throw err if else.
-	o function searchDB(username, password, pathToDB) - find user info if it exists. Return user info. Return False otherwise.
+	o alter searchDB to only return a boolean. True if the customer exists and passes authentication, false otherwise. New format will be 'username, password, first name, last name, email, phone number, address'.
+	o update userData.txt to only hold customer profile information. Another DB file will be used to store transaction data.

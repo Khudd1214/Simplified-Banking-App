@@ -2,13 +2,44 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>HTML 5 Boilerplate</title>
-    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>This is the registration page</h1>
-    <script src="index.js"></script>
+    <form action="/registration" method="POST">
+      <input
+        type="text"
+        id="firstName"
+        name="firstName"
+        placeholder="First Name"
+      />
+      <input
+        type="text"
+        id="lastName"
+        name="lastName"
+        placeholder="Last Name"
+      /><br />
+      <input
+        type="tel"
+        id="phoneNumber"
+        name="phoneNumber"
+        placeholder="111-111-1111"
+        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+      /><br />
+      <input type="email" id="email" name="email" placeholder="email" /><br />
+      <input
+        type="text"
+        id="username"
+        name="username"
+        placeholder="Choose a username"
+      />
+      <input
+        type="text"
+        id="password"
+        name="password"
+        placeholder="Choose a password"
+      /><br />
+      <p><a href="./">Go back to home page</a></p>
+      <button name="submit" type="submit">Finish</button>
+    </form>
   </body>
 </html>
