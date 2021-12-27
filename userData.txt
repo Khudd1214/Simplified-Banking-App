@@ -1,2 +1,0 @@
-ken,password,33.00,43.45
-alan,pa55word,9.99,103.72
