@@ -1,16 +1,10 @@
-Sprint 1)
+Sprint 2)
 ----------------
-	o Initialize the git repository for the project "Simplified Banking App"
-	o Create a low-fidelity outline of the website design. Current scope is to have 3 user facing pages:
-		I. The homepage/login page
-		II. The user registration page - where the user will register if their information is not currently available.
-		III. The account information page - a custom message to the user, based on their DB info, will be displayed. User can choose between existing accounts and see transaction history within the accounts.
-	o Functionality requirements:
-		HOMEPAGE/LOGIN: At this stage, styling is kept minimal. Simple HTML effects and form elements are sufficient. Accept user login information and submit to server.
-			The user will be verified using txt documents on the server. If the user exists, log in. If not, send to registration page.
-		REGISTRATION: 	Styling kept minimal. HTML Form and effects is sufficient. Takes user personal data, sends to server, creates txt DB entry, and then 'initializes' the customers accounts.
-			Customer is then taken to their new account page. Personal data is to include name, address, phone number, and email
-		ACCOUNT INFO: 	Display custom message greeting client. Display whatever accounts the customer has with the app using DB entries. Display account transactions.
+o Implement userTransactions.txt - which is a second file that stores transaction data. "Username, transaction 1, transaction 2, transasction 3"
+o send user transactions to user as accountDisplay.html
+o Implement barebones Bootstrap styling on homepage.html, registration.html, and accountDisplay.html
+
+
 
 -------------------
 Development Notes:
@@ -26,7 +20,7 @@ Development Notes:
 	o Improve registration page - specify required fields, enforce input, and request additional financial information from user.
 	o Use user provided financial information to make a decision about opening accounts using pre-defined algorithm.
 	o Separate accounts based on type (checking, savings, etc)
-	o Implement handlebars.js to make templating easier
+	o Implement handlebars.js to make templating easier - NOTE* considering skipping this step and using REACT or VUE instead. By many accounts, it does the same thing.
 -----------------------
 Implementation Details:
 -----------------------
@@ -41,6 +35,27 @@ Implementation Details:
 -----------------------
 Current Tasks:
 -----------------------
-	o Implement FSUtilitiesSync.js - start by creating a search function that will look through the database for the user information. If exists, return user information. If does not exist, return False.
-	o implement findDB(pathToDB) - confirms that pathToDB is a valid path. Confirm file exists. Throw err if else.
-	o function searchDB(username, password, pathToDB) - find user info if it exists. Return user info. Return False otherwise.
+	o update userData.txt to only hold customer profile information. Another DB file will be used to store transaction data.
+
+
+
+
+
+
+--------------------------
+****Completed Sprints****
+-------------------------
+
+Sprint 1)
+----------------
+o Initialize the git repository for the project "Simplified Banking App"
+o Create a low-fidelity outline of the website design. Current scope is to have 3 user facing pages:
+	I. The homepage/login page
+	II. The user registration page - where the user will register if their information is not currently available.
+	III. The account information page - a custom message to the user, based on their DB info, will be displayed. User can choose between existing accounts and see transaction history within the accounts.
+o Functionality requirements:
+	HOMEPAGE/LOGIN: At this stage, styling is kept minimal. Simple HTML effects and form elements are sufficient. Accept user login information and submit to server.
+					The user will be verified using txt documents on the server. If the user exists, log in. If not, send to registration page.
+	REGISTRATION: 	Styling kept minimal. HTML Form and effects is sufficient. Takes user personal data, sends to server, creates txt DB entry, and then 'initializes' the customers accounts.
+				Customer is then taken to their new account page. Personal data is to include name, address, phone number, and email
+	ACCOUNT INFO: 	Display custom message greeting client. Display whatever accounts the customer has with the app using DB entries. Display account transactions.
