@@ -1,0 +1,14 @@
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title><%= results[2] %>'s Account Display Page</title>
+  </head>
+  <body>
+    <h1>Hello, <%= results[2] %>. How are you today?</h1>
+    <ul>
+      <% for (let i = 0; i < trans.length; i++) { %>
+      <li><%= trans[i] %></li>
+      <% } %>
+    </ul>
+  </body>
+</html>

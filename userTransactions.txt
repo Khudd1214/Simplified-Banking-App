@@ -1,0 +1,2 @@
+username:transaction1,transaction2,etc.
+kenUser:0.99,7.53,101.23,32.99,99.99,79.85
