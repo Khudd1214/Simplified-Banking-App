@@ -1,2 +1,4 @@
-ken,password,33.00,43.45
-alan,pa55word,9.99,103.72
+username,password,firstName,lastName,email@yahoo.com,111-111-1111
+kenUser,kenPassword,kenneth,huddleston,myemail@gmail.com,503-709-2142
+martellUser,martellPassword,Martell,Mecham,martellemail@yahoo.com,333-333-3333
+kUser,kPassword,Kelly,Campbell,testkellemail@gmail.com,545-535-5555

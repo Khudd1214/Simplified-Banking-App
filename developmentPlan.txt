@@ -1,9 +1,14 @@
-<<<<<<< HEAD
 Sprint 2)
 ----------------
-o Implement userTransactions.txt - which is a second file that stores transaction data. "Username, transaction 1, transaction 2, transasction 3"
-o send user transactions to user as accountDisplay.html
-o Implement barebones Bootstrap styling on homepage.html, registration.html, and accountDisplay.html
+o Implement EJS and accountDisplay page
+o Implement userTransactions.txt to store username:transaction1,transaction2,etc.
+o Edit accountDisplay page to reflect transaction amounts in userTransactions.txt
+o Refactor functions in FSUtilitiesSync to be more concise and modularized. Should look something like:
+	i. 		isVerified() => returns a boolean value indicating if the username and password are valid. Calls findDB() to ensure DB file exists on server.
+	ii.		addUser() => Stores profile data and initializes transaction data of new customer.
+	iii. 	getProfileData() => returns an array of profile data for the user.
+	iv.		getTransactionData() => returns an array of transaction data for the user.
+o Stylize accountDisplay.ejs with Bootstrap 5.
 
 
 
@@ -12,6 +17,7 @@ Development Notes:
 -------------------
 	* This is TBD. Below are general notes for improvement to the platform - these tasks have yet to be scheduled.
 	---------------------------------------------------------------------------------------------------------------
+	o Add transaction descriptions to userTransactions.txt
 	o Migrate from synchronous functionality to asynchronous functionality
 	o Implement Bootstrap 5/CSS as necessary to improve the styling/appearance of the website.
 	o Implement meaningful input restrictions/helpful error codes to inform a user of invalid input
@@ -32,11 +38,6 @@ Implementation Details:
 	server.js 		- Receives user information from 'homepage.html' and 'registration.html'. Calls functions from FSUtilities to search, update, and read data from DB. Responds by rendering accountDisplay.html
 	FSUtilitiesSync.js 	- A module with functions to manipulate .txt files, which will serve as the DB for this implementation. Make sure functions are set to specify the DB path, so I can easily change DB formats later.
 	userData.txt		- contains all user data. Serves as the DB for this project. Holds data in order 'username, password, comma seperated transactions'
-
------------------------
-Current Tasks:
------------------------
-	o update userData.txt to only hold customer profile information. Another DB file will be used to store transaction data.
 
 
 
@@ -60,50 +61,3 @@ o Functionality requirements:
 	REGISTRATION: 	Styling kept minimal. HTML Form and effects is sufficient. Takes user personal data, sends to server, creates txt DB entry, and then 'initializes' the customers accounts.
 				Customer is then taken to their new account page. Personal data is to include name, address, phone number, and email
 	ACCOUNT INFO: 	Display custom message greeting client. Display whatever accounts the customer has with the app using DB entries. Display account transactions.
-=======
-Sprint 1)
-----------------
-	o Initialize the git repository for the project "Simplified Banking App"
-	o Create a low-fidelity outline of the website design. Current scope is to have 3 user facing pages:
-		I. The homepage/login page
-		II. The user registration page - where the user will register if their information is not currently available.
-		III. The account information page - a custom message to the user, based on their DB info, will be displayed. User can choose between existing accounts and see transaction history within the accounts.
-	o Functionality requirements:
-		HOMEPAGE/LOGIN: At this stage, styling is kept minimal. Simple HTML effects and form elements are sufficient. Accept user login information and submit to server.
-			The user will be verified using txt documents on the server. If the user exists, log in. If not, send to registration page.
-		REGISTRATION: 	Styling kept minimal. HTML Form and effects is sufficient. Takes user personal data, sends to server, creates txt DB entry, and then 'initializes' the customers accounts.
-			Customer is then taken to their new account page. Personal data is to include name, address, phone number, and email
-		ACCOUNT INFO: 	Display custom message greeting client. Display whatever accounts the customer has with the app using DB entries. Display account transactions.
-
--------------------
-Development Notes:
--------------------
-	* This is TBD. Below are general notes for improvement to the platform - these tasks have yet to be scheduled.
-	---------------------------------------------------------------------------------------------------------------
-	o Migrate from synchronous functionality to asynchronous functionality
-	o Implement Bootstrap 5/CSS as necessary to improve the styling/appearance of the website.
-	o Implement meaningful input restrictions/helpful error codes to inform a user of invalid input
-	o Migrate Database functions from txt files to MongoDB or MySQL (still being researched). Consider writing server side DB code with Python.
-	o Give users the ability to add an account, delete an account, make a deposit, make a withdrawal, request a loan.
-	o Implement chat feature and chat robot for response
-	o Improve registration page - specify required fields, enforce input, and request additional financial information from user.
-	o Use user provided financial information to make a decision about opening accounts using pre-defined algorithm.
-	o Separate accounts based on type (checking, savings, etc)
-	o Implement handlebars.js to make templating easier
------------------------
-Implementation Details:
------------------------
-
-	homepage.html 		- Use a default settings html form that sends results via POST to server
-	registration.html 	- 
-	accountDisplay.html 	- 
-	server.js 		- Receives user information from 'homepage.html' and 'registration.html'. Calls functions from FSUtilities to search, update, and read data from DB. Responds by rendering accountDisplay.html
-	FSUtilitiesSync.js 	- A module with functions to manipulate .txt files, which will serve as the DB for this implementation. Make sure functions are set to specify the DB path, so I can easily change DB formats later.
-	userData.txt		- contains all user data. Serves as the DB for this project. Holds data in order 'username, password, comma seperated transactions'
-
------------------------
-Current Tasks:
------------------------
-	o alter searchDB to only return a boolean. True if the customer exists and passes authentication, false otherwise. New format will be 'username, password, first name, last name, email, phone number, address'.
-	o update userData.txt to only hold customer profile information. Another DB file will be used to store transaction data.
->>>>>>> 8f0ef746ff7337f10c331ef6917dd61e6b4e267f
