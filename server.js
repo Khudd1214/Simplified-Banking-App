@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const FSUtilities = require("./FSUtilities");
 const mongo = require("./MongoDBUtilities.js");
 const { response } = require("express");
+const MongoDBUtilities = require("./MongoDBUtilities.js");
 
 const app = express();
 const listeningPort = 4369;
@@ -60,8 +61,18 @@ app.post("/registration", async function (req, res) {
         req.body.email,
         req.body.phoneNumber
       )
-      .then(() => {
-        res.send("You are registered!");
+      .then((data) => {
+        let profileData = mongo.getProfileData(req.body.username);
+        profileData
+          .then((data) => {
+            res.render("accountDisplay", {
+              results: data,
+              trans: [9.99],
+            });
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       });
   }
 });
