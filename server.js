@@ -22,22 +22,51 @@ app.get("/", function (req, res) {
   res.sendFile(__dirname + "/homepage.html");
 });
 
-app.post("/", function (req, res) {
-  const userInput = [req.body.username, req.body.password];
-  const profileDBPath = __dirname + "\\userData.txt";
-  const transactionDBPath = __dirname + "\\userTransactions.txt";
-  if (
-    FSUtilities.isVerified(userInput[0], userInput[1], profileDBPath) !== false
-  ) {
-    let profileData = FSUtilities.getProfileData(userInput[0], profileDBPath);
-    let transactionData = FSUtilities.getTransactionData(
-      userInput[0],
-      transactionDBPath
-    );
-    res.render("accountDisplay", {
-      results: profileData,
-      trans: transactionData,
-    });
+// app.post("/", function (req, res) {
+//   const userInput = [req.body.username, req.body.password];
+//   const profileDBPath = __dirname + "\\userData.txt";
+//   const transactionDBPath = __dirname + "\\userTransactions.txt";
+//   if (
+//     FSUtilities.isVerified(userInput[0], userInput[1], profileDBPath) !== false
+//   ) {
+//     let profileData = FSUtilities.getProfileData(userInput[0], profileDBPath);
+//     let transactionData = FSUtilities.getTransactionData(
+//       userInput[0],
+//       transactionDBPath
+//     );
+//     res.render("accountDisplay", {
+//       results: profileData,
+//       trans: transactionData,
+//     });
+//   }
+// });
+
+app.post("/", async function (req, res) {
+  try {
+    let result = mongo
+      .isVerified(req.body.username, req.body.password)
+      .then((data) => {
+        return data;
+      });
+    if ((await result) == false) {
+      res.send(
+        "Sorry, that information does not match what we have on file..."
+      );
+    } else {
+      let profileData = mongo.getProfileData(req.body.username);
+      profileData
+        .then((data) => {
+          res.render("accountDisplay", {
+            results: data,
+            trans: [9.99, -5.99, 3.25, 7.99, -4.99],
+          });
+        })
+        .catch((err) => {
+          return err;
+        });
+    }
+  } catch (err) {
+    return err;
   }
 });
 
@@ -67,11 +96,11 @@ app.post("/registration", async function (req, res) {
           .then((data) => {
             res.render("accountDisplay", {
               results: data,
-              trans: [9.99],
+              trans: [9.99, -5.99, 3.25, 7.99, -4.99],
             });
           })
           .catch((err) => {
-            console.log(err);
+            return err;
           });
       });
   }

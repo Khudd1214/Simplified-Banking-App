@@ -84,13 +84,13 @@ async function getProfileData(usernameToQuery) {
   return await profileData;
 }
 
-async function printResults() {
-  console.log(await isVerified("alanUser5000", "alanPassword"));
-}
-printResults();
-// module.exports = {
-//   addUser: addUser,
-//   isValidUsername: isValidUsername,
-//   getProfileData: getProfileData,
-//   isVerified: isVerified,
-// };
+// async function printResults() {
+//   console.log(await isVerified("alanUser5000", "alanPassword"));
+// }
+// printResults();
+module.exports = {
+  addUser: addUser,
+  isValidUsername: isValidUsername,
+  getProfileData: getProfileData,
+  isVerified: isVerified,
+};
