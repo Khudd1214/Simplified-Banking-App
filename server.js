@@ -1,6 +1,5 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const FSUtilities = require("./FSUtilities");
 const mongo = require("./MongoDBUtilities.js");
 const { response } = require("express");
 const MongoDBUtilities = require("./MongoDBUtilities.js");
@@ -21,25 +20,6 @@ app.listen(listeningPort, function (err) {
 app.get("/", function (req, res) {
   res.sendFile(__dirname + "/homepage.html");
 });
-
-// app.post("/", function (req, res) {
-//   const userInput = [req.body.username, req.body.password];
-//   const profileDBPath = __dirname + "\\userData.txt";
-//   const transactionDBPath = __dirname + "\\userTransactions.txt";
-//   if (
-//     FSUtilities.isVerified(userInput[0], userInput[1], profileDBPath) !== false
-//   ) {
-//     let profileData = FSUtilities.getProfileData(userInput[0], profileDBPath);
-//     let transactionData = FSUtilities.getTransactionData(
-//       userInput[0],
-//       transactionDBPath
-//     );
-//     res.render("accountDisplay", {
-//       results: profileData,
-//       trans: transactionData,
-//     });
-//   }
-// });
 
 app.post("/", async function (req, res) {
   try {
