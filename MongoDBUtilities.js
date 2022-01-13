@@ -1,6 +1,25 @@
 const mongoose = require("mongoose");
 const UserModel = require("./userModel.js");
 
+async function isVerified(usernameToQuery, passwordToQuery) {
+  mongoose.connect("mongodb://localhost:27017/bankDB");
+  try {
+    let isValid = UserModel.findOne({
+      username: usernameToQuery,
+      password: passwordToQuery,
+    }).then((data) => {
+      if (data == null) {
+        return false;
+      } else {
+        return true;
+      }
+    });
+    return await isValid;
+  } catch (err) {
+    return err;
+  }
+}
+
 async function addUser(
   usernameInput,
   passwordInput,
@@ -65,12 +84,13 @@ async function getProfileData(usernameToQuery) {
   return await profileData;
 }
 
-// async function printResults() {
-//   console.log(await addUser("alanUser75"));
-// }
-// printResults();
-module.exports = {
-  addUser: addUser,
-  isValidUsername: isValidUsername,
-  getProfileData: getProfileData,
-};
+async function printResults() {
+  console.log(await isVerified("alanUser5000", "alanPassword"));
+}
+printResults();
+// module.exports = {
+//   addUser: addUser,
+//   isValidUsername: isValidUsername,
+//   getProfileData: getProfileData,
+//   isVerified: isVerified,
+// };
